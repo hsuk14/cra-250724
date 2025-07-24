@@ -35,14 +35,23 @@ public class Car {
     public void testRun() {
         if (this.carType.equals(CarType.SEDAN) && this.carBreak.equals(CarBreak.CONTINENTAL)) {
             this.fail("Sedan에는 Continental제동장치 사용 불가");
-        } else if (this.carType.equals(CarType.SUV) && this.engine.equals(Engine.TOYOTA)) {
+            return;
+        }
+        if (this.carType.equals(CarType.SUV) && this.engine.equals(Engine.TOYOTA)) {
             this.fail("SUV에는 TOYOTA엔진 사용 불가");
-        } else if (this.carType.equals(CarType.TRUCK) && this.engine.equals(Engine.WIA)) {
+            return;
+        }
+        if (this.carType.equals(CarType.TRUCK) && this.engine.equals(Engine.WIA)) {
             this.fail("Truck에는 WIA엔진 사용 불가");
-        } else if (this.carType.equals(CarType.TRUCK) && this.carBreak.equals(CarBreak.MANDO)) {
+            return;
+        }
+        if (this.carType.equals(CarType.TRUCK) && this.carBreak.equals(CarBreak.MANDO)) {
             this.fail("Truck에는 Mando제동장치 사용 불가");
-        } else if (this.carBreak.equals(CarBreak.BOSCH) && !this.steering.equals(Steering.BOSCH)) {
+            return;
+        }
+        if (this.carBreak.equals(CarBreak.BOSCH) && !this.steering.equals(Steering.BOSCH)) {
             this.fail("Bosch제동장치에는 Bosch조향장치 이외 사용 불가");
+            return;
         } else {
             System.out.println("자동차 부품 조합 테스트 결과 : PASS");
         }

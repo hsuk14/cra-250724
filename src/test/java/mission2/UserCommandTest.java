@@ -42,7 +42,7 @@ class UserCommandTest {
         UserCommand commandFalse = new UserCommand(1, userInputFalse);
         // when
         boolean actualResultA = commandTrue.isInValid();
-        boolean actualResultB = commandTrue.isInValid();
+        boolean actualResultB = commandFalse.isInValid();
         // then
         assertTrue(actualResultA);
         assertFalse(actualResultB);
@@ -53,6 +53,8 @@ class UserCommandTest {
         // given
         UserCommand testCommandTrue = new UserCommand(1, "0");
         UserCommand testCommandFalse = new UserCommand(1, "1");
+        testCommandTrue.setExecutionCodeBySelf();
+        testCommandFalse.setExecutionCodeBySelf();
         // when
         boolean actualResultA = testCommandTrue.isUndoCode();
         boolean actualResultB = testCommandFalse.isUndoCode();
@@ -66,6 +68,8 @@ class UserCommandTest {
         // given
         UserCommand testCommandTrue = new UserCommand(1, "1");
         UserCommand testCommandFalse = new UserCommand(1, "2");
+        testCommandTrue.setExecutionCodeBySelf();
+        testCommandFalse.setExecutionCodeBySelf();
         // when
         boolean actualResultA = testCommandTrue.isRunCode();
         boolean actualResultB = testCommandFalse.isRunCode();
@@ -79,6 +83,8 @@ class UserCommandTest {
         // given
         UserCommand testCommandTrue = new UserCommand(1, "2");
         UserCommand testCommandFalse = new UserCommand(1, "3");
+        testCommandTrue.setExecutionCodeBySelf();
+        testCommandFalse.setExecutionCodeBySelf();
         // when
         boolean actualResultA = testCommandTrue.isTestCode();
         boolean actualResultB = testCommandFalse.isTestCode();
